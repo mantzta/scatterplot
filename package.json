@@ -1,0 +1,23 @@
+{
+  "name": "scatterplot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "Tamara Mantz",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "d3": "^5.9.2",
+    "express": "^4.16.4",
+    "js-polynomial-regression": "^0.9.0"
+  }
+}
