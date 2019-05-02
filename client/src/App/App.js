@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
 import API from "./utils/API";
-import ScatterPlot from './ScatterPlot/ScatterPlot';
+import ScatterPlot from "./ScatterPlot/ScatterPlot";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     if (Object.entries(this.state.data).length !== 0) {
       return (
-        <div className="App">
+        <div className="app">
           <ScatterPlot data={this.state.data} />
         </div>
       );

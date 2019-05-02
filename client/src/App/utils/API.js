@@ -2,5 +2,5 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: `/data`,
-  responseType: "json"
+  responseType: `json`
 });

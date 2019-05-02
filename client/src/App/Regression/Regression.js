@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import * as d3 from "d3";
-import regression from 'regression';
+import regression from "regression";
 
 class Regression extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Regression extends Component {
   }
 
   componentDidMount() {
-    this.drawRegression(this.props.data);
+    this.drawRegression();
   }
 
   /**
@@ -29,12 +29,9 @@ class Regression extends Component {
     return transformedDataset;
   }
 
-  /**
-   * @param {array<object>} dataset
-   */
-  drawRegression(dataset) {
+  drawRegression() {
     const scales = this.props.scalesInstance.getScales();
-    const model = regression.polynomial(this.getTransformedDataset(dataset), { order: this.degree });
+    const model = regression.polynomial(this.getTransformedDataset(this.props.data.data), { order: this.degree });
 
     const lineGenerator = d3.line()
       .x(function (d) {
@@ -48,15 +45,14 @@ class Regression extends Component {
     const pathData = lineGenerator(model.points);
 
     d3.select(this.pathRef.current)
-      .attr("class", "line")
       .attr("d", pathData)
-      .attr("stroke", this.props.color)
+      .attr("stroke", this.props.data.color)
       .attr("fill", "none");
   }
 
   render() {
     return (
-      <path ref={this.pathRef}></path>
+      <path ref={this.pathRef} className={`regression__${this.props.data.name}`}></path>
     );
   }
 

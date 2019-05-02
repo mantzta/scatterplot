@@ -19,9 +19,9 @@ function getY() {
   return Math.round(Math.random() * 100);
  }
 
-app.use(express.static(path.join(__dirname, 'client/public')));
+app.use(express.static(path.join(__dirname, `client/public`)));
 
-app.get('/data', function(req, res) {
+app.get(`/data`, function(req, res) {
   const data = {};
 
   for (let i = 1; i <= 3; i++) {
@@ -36,8 +36,8 @@ app.get('/data', function(req, res) {
   res.json(data);
 });
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+app.get(`*`, (req,res) =>{
+  res.sendFile(path.join(`${__dirname}/client/public/index.html`));
 });
 
 app.listen(port, () => {

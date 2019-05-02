@@ -1,5 +1,12 @@
 import * as d3 from "d3";
 
+/**
+ * @param {number} width
+ * @param {number} height
+ * @param {number} padding
+ * @param {object} data
+ * @return {object}
+ */
 export function Scales(width, height, padding, data) {
   let maxX, maxY;
 
@@ -38,8 +45,8 @@ export function Scales(width, height, padding, data) {
     return scales;
   }
 
-  maxX = getMax("x", data);
-  maxY = getMax("y", data);
+  maxX = getMax(`x`, data);
+  maxY = getMax(`y`, data);
 
   return {
     getScales
